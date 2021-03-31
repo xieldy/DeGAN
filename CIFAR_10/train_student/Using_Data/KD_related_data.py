@@ -234,7 +234,7 @@ def main():
             print('Model has converged with learning rate = {}!'.format(args.lr))
             break
     n_epochs_lr1 = epoch
-    optimizer = optim.Adam(netS.parameters(), lr=args.lr*0.1)
+    optimizer = optim.Adam(netS.parameters(), lr=args.lr*0.1)  # 当第一轮epochs迭代结束时，将学习率调小0.1之后继续学习
     netS.load_state_dict(torch.load("models/best_model_lr1.pth"))
     cnt = 0
     train_st_acc_lr2 = train_st_acc_lr1
